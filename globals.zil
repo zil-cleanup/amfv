@@ -2015,7 +2015,7 @@ background of the city's oldest park." CR>)
 		<COND (<EQUAL? ,HERE ,KITCHEN>
 		       <TELL
 "There's no room on the counter. Maybe you should try the table." CR>)
-		      (<PRSI? ,COUNTER>
+		      ;(<PRSI? ,COUNTER>
 		       <PERFORM ,V?DROP ,BEER>
 		       <RTRUE>)
 		      (<NOT <EQUAL? ,HERE ,EPILOGUE-KITCHEN>>
@@ -2741,9 +2741,9 @@ to the Devil's Tower region of Wyoming. ">
 		<CURSET .LINE-NUMBER 1>)>
 	 <HLIGHT 1>
 	 <REPEAT ()
-		 <BUFOUT T>
+		 ;<BUFOUT T> ;"only use for (speeding up) Amiga"
 		 <TELL "                                        ">
-		 <BUFOUT <>>
+		 ;<BUFOUT <>> ;"only use for (speeding up) Amiga"
 		 <COND (.CENTER-HALF
 			<RETURN>)
 		       (T

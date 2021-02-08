@@ -1343,8 +1343,10 @@ theoretically fit in a space no larger than a pack of cigarettes.")>
 		       (<EQUAL? .CNT 0>
 			<RETURN>)>>
 	 <INCREMENT-TIME <- 360 .CNT>>
-	 <PUT-PERELMAN-IN-THE-RIGHT-PLACE>
-	 <QUEUE I-PERELMAN -1>
+	 <COND (<L? ,PART-FLAG 3>
+	 	<PUT-PERELMAN-IN-THE-RIGHT-PLACE>
+	 	<QUEUE I-PERELMAN -1>
+		<SETG LAST-ABE-TIME <- ,TIME 1>>)>
 	 <COND (<EQUAL? .CNT 0>
 		<TELL
 "Some time later, you awake feeling relaxed and notice that about
@@ -1385,7 +1387,7 @@ six hours have passed." CR>)>
 		<COND (<EQUAL? ,PART-FLAG 4>
 		       <TELL "There are currently no active outlets." CR>)
 		      (T
-		       <TELL "   ">
+		       <TELL "    ">
 		       <PRINTD ,CONTROL-CENTER>
 		       <TELL " (PPCC)|    ">
 		       <PRINTD ,ROOFTOP>
@@ -2085,7 +2087,8 @@ paperwork you could lose a skybus in.\"" CR>
 		       <RTRUE>)
 		      (T
 		       <TELL "\"You don't have to thank me!\"" CR>)>)
-	       (<VERB? CALL>
+	       (<AND <VERB? CALL>
+		     <VISIBLE? ,PERELMAN>>
 		<PERFORM ,V?TELL ,PERELMAN>
 		<RTRUE>)
 	       ;(<VERB? HELLO>
@@ -5060,7 +5063,8 @@ car!\" He yanks open the door and snaps a finger at one of the Guardsmen,
 ending the snap by pointing at Perelman. Ryder stomps away as the guard drags
 Perelman out of the office." CR>
 		<CLEAR-BUF>)
-	       (<VERB? CALL>
+	       (<AND <VERB? CALL>
+		     <VISIBLE? ,RYDER>>
 		<PERFORM ,V?TELL ,RYDER>
 		<RTRUE>)
 	       (<VERB? EXAMINE>

@@ -586,9 +586,14 @@ Release " N .V " / Serial number ">
 
 <ROUTINE V-CALL ()
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
-		<TELL "You do so, but">
-		<ARTICLE ,PRSO>
-		<TELL " doesn't seem to hear you." CR>)
+		<COND (<VISIBLE? ,PRSO>
+		       <TELL "You do so, but">
+		       <ARTICLE ,PRSO>
+		       <TELL " doesn't seem to hear you." CR>)
+		      (T
+		       <TELL "But">
+		       <ARTICLE ,PRSO>
+		       <TELL " isn't within earshot." CR>)>)
 	       (T
 		<TELL "That's an odd thought." CR>)>>
 
@@ -2752,7 +2757,7 @@ long description (fdesc or ldesc), otherwise will print short."
 
 <CONSTANT NEXITSTR 0>
 <CONSTANT FEXITFCN 0>
-<CONSTANT CEXITFLAG 4>
+<CONSTANT CEXITFLAG 1>
 <CONSTANT CEXITSTR 1>
 <CONSTANT DEXITOBJ 1>
 <CONSTANT DEXITSTR 2>
