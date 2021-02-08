@@ -1,0 +1,45 @@
+"EXTENDED S5 for
+			A MIND FOREVER VOYAGING
+	(c) Copyright 1985 Infocom, Inc.  All Rights Reserved."
+
+<PRINC "
+ *** A MIND FOREVER VOYAGING: Interactive Science Fiction (Extended) ***
+
+">
+
+ON!-INITIAL
+OFF!-INITIAL
+ENABLE!-INITIAL
+DISABLE!-INITIAL
+
+<COND (<GASSIGNED? MUDDLE>
+       <BLOAT 90000 0 0 3300 0 0 0 0 0 256>)>
+
+<SNAME "S5">
+
+<SET REDEFINE T>
+
+<OR <GASSIGNED? ZILCH>
+    <SETG WBREAKS <STRING !\" !,WBREAKS>>>
+
+<OR <GASSIGNED? INSERT-CRUFTY>
+    <DEFINE INSERT-CRUFTY (STR) <INSERT-FILE .STR T>>>
+
+<COND (<GASSIGNED? PREDGEN>
+       <ID 0>)>
+
+<COND (<GASSIGNED? PREDGEN>
+       <SETG ZSTR-ON <SETG ZSTR-OFF ,TIME>>)>
+
+<INSERT-FILE "misc" T>
+<INSERT-FILE "parser" T>
+<INSERT-FILE "interrupts" T>
+<INSERT-FILE "rockvil" T>
+<INSERT-FILE "syntax" T>
+<INSERT-FILE "verbs" T>
+<INSERT-FILE "globals" T>
+<INSERT-FILE "prism" T>
+<INSERT-FILE "apartment" T>
+
+<PROPDEF SIZE 5>
+<PROPDEF CAPACITY 0>
