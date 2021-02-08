@@ -363,19 +363,6 @@ Release " N .V " / Serial number ">
 	       (T
 		<SETG DEBUG T>
 		<TELL "Debugging on." CR>)>>
-
-;<ROUTINE V-$TABLE ("AUX" CNT)
-	 <SET CNT ,P-NUMBER>
-	 <REPEAT ()
-		<TELL S .CNT " = " S <+ 1000 <RANDOM 8999>> "     ">
-		<TELL S <+ .CNT 40> " = " S <+ 1000 <RANDOM 8999>> "     ">
-		<TELL S <+ .CNT 80> " = " S <+ 1000 <RANDOM 8999>> "     ">
-		<TELL S <+ .CNT 120> " = " S <+ 1000 <RANDOM 8999>> "     ">
-		<TELL S <+ .CNT 160> " = " S <+ 1000 <RANDOM 8999>> "     " CR>
-		<SET CNT <+ .CNT 1>>
-		<COND (<EQUAL? .CNT 40>
-		       <CRLF>
-		       <RETURN>)>>>
 
 ;"subtitle real verbs"
 

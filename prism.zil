@@ -93,7 +93,7 @@ everything's there this time.\"" CR>
 	 <QUEUE I-MESSAGE-E 14>>
 
 <ROUTINE I-MESSAGE-M ()
-	 ;<COND (<OR ,SIMULATING ;"let I-SIMULATION disable I-MESSAGE-M"
+	 ;<COND (<OR ,SIMULATING ;"let SIMULATION-ACTION disable I-MESSAGE-M"
 		    <QUEUED? ,I-FIRST-SIMULATION-RESULT>>
 		<RFALSE>)>
 	 <COND (<EQUAL? <GETP ,MESSAGE-M ,P?CAPACITY> 0>
@@ -1634,8 +1634,7 @@ holding a woman.">)>
 <ROOM OFFICE
       (LOC ROOMS)
       (DESC "Dr. Perelman's Office")
-      (FLAGS ONBIT)
-      (FLAGS NARTICLEBIT)
+      (FLAGS ONBIT NARTICLEBIT)
       (GLOBAL SHELVES OUTLETS PEOPLE)
       (ACTION OFFICE-F)>
 
@@ -3975,10 +3974,8 @@ hadn't been caught in time.">)>
 		       <PRINTD ,SIMULATION-MODE>
 		       <TELL ". Please await approval." CR>)
 		      (<SECURITY-CHECK>
-		       <SETG MODE ,SIMULATION-MODE>
 		       <TURN-RECORD-OFF T>
-		       <GOTO ,SIMULATION-ROOM>
-		       <I-SIMULATION>)
+		       <SIMULATION-ACTION>)
 		      (T
 		       <SETG MODE ,COMM-MODE>
 		       <GOTO ,COMM-ROOM>
@@ -3990,6 +3987,9 @@ hadn't been caught in time.">)>
 		<V-ABORT>)>>
 
 <ROUTINE SECURITY-CHECK ("AUX" (CHANCES 0) (X <>) COLOR INNERNUM OUTERNUM)
+	 <SETG MODE ,SIMULATION-MODE>
+	 <GOTO ,SIMULATION-ROOM>
+	 <STATUS-LINE>
 	 <COND (<EQUAL? ,PART-FLAG 4>
 		<RTRUE>)>
 	 <SET COLOR <- <RANDOM 16> 1>>
@@ -4080,7 +4080,7 @@ and so on. Here's a list of the minimum times before advancement is possible:
 <ROUTINE SIMULATION-BASED (NUM)
 	 <TELL "This simulation is based " N .NUM " years hence." CR CR>>
 
-<ROUTINE I-SIMULATION ()
+<ROUTINE SIMULATION-ACTION ()
 	 <COND (<EQUAL? ,PART-FLAG 4>
 		<TELL "Class One Security: waived. ">
 		<SIMULATION-BASED 60>
