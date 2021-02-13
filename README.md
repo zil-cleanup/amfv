@@ -1,4 +1,4 @@
-# A Mind Forever Voyaging
+# A Mind Forever Voyaging (Development Sequence)
 
 ## What is this?
 
