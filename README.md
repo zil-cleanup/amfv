@@ -6,7 +6,7 @@ This repository contains a reconstructed development sequence for the Infocom ga
 
 ## Where did it come from?
 
-The sequence has been reconstructed from the contents of the repositories [zilf-heritage/amfv-r77](https://github.com/zilf-heritage/amfv-r77), [zilf-heritage/amfv-r79](https://github.com/zilf-heritage/amfv-r79) and [zilf-heritage/amfv-latest](https://github.com/zilf-heritage/amfv-latest).
+This repository was forked from [zilf-heritage/amfv](https://github.com/zilf-heritage/amfv).
 
 ## What is it for?
 
